@@ -11,7 +11,6 @@ import {
   Title,
   Tooltip,
   Legend,
-
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { data } from './pages/CurrencyDetails';
@@ -32,12 +31,6 @@ ChartJS.register(
 function App() {
   return (
     <div className="">
-
-      <div className='w-50 h-75 text-center justify-self-center' >
-        <Line data={data} />
-      </div>
-
-
       <Header />
       <AppRouter />
     </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, } from 'react'
 import { Button, Form, FormControl, Nav, Navbar, Image, Container, Row, Col, } from 'react-bootstrap'
-import CurrencyConvertingCard from './components/CurrencyConvertingCard'
+import CurrencyConvertingCard from './ui-components/CurrencyConvertingCard'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getFluctuation } from '../services/api/api_layer/getFlut'
 import 'chart.js/auto';

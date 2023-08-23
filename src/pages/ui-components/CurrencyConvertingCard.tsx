@@ -27,29 +27,6 @@ const CurrencyConvertingCard = () => {
         findLatest()
     }, [])
 
-    /*
-        const handleChangeAmount = (e: any) => {
-            e.preventDefault()
-
-        }
-        const handleSelectFrom = (e: any) => {
-            e.preventDefault()
-
-        }
-        const handleSwitchButton = (e: any) => {
-            e.preventDefault()
-
-        }
-        const handleSelectTo = (e: any) => {
-            e.preventDefault()
-
-        }
-
-        const handleConvert = (e: any) => {
-            e.preventDefault()
-
-        }
-        */
 
     useEffect(() => {
         if (fromState && toState) {
@@ -136,10 +113,7 @@ const CurrencyConvertingCard = () => {
     const handleSelect = (e: any) => {
         e.preventDefault()
         //setCurrencyName()
-
-
     }
-
 
 
     return (
@@ -210,17 +184,7 @@ const CurrencyConvertingCard = () => {
                         </Row>
                     </Col>
                 </Row>
-
-
-
-
-
-
-
-
             </Container>
-
-
         </div>
     )
 }
