@@ -4,58 +4,54 @@ import CurrencyConvertingCard from './ui-components/CurrencyConvertingCard'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getFluctuation } from '../services/api/api_layer/getFlut'
 import 'chart.js/auto';
-import { Bar, Line } from 'react-chartjs-2';
 
+import {
+    BarController,
+    LinearScale,
+    BarElement,
+    TimeScale,
+    Tooltip,
+    ChartOptions,
+    ChartData,
+    Chart,
+    CategoryScale,
+
+} from 'chart.js';
+import { ReactChart } from 'chartjs-react';
+import ChartCore from '../components/ChartCore'
 
 
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
-export const data = {
-    labels,
+const chartOption: ChartOptions = {
+    scales: {
+        x: {
+            type: 'category',
+            //display: true,
+        },
+        y: {
+            type: 'linear',
+        },
+    },
+};
+
+const data_chart: ChartData = {
+    //xLabels: ["January", "February", "March", "April", "May", "June", "Juli"],
+    //yLabels: ['five', 'ten', 'five', 'two', 20, 30, 45, 50, 60],
+    labels: labels,
     datasets: [
         {
-            label: 'Dataset 1',
-            id: 'data1',
-            data: [0, 10, 20, 30, 40, 50, 60, 70], //faker.datatype.number({ min: -1000, max: 1000 })),
-            backgroundColor: 'rgb(255, 99, 132)',
-            stack: 'Stack 0',
+            label: "My First dataset",
+            backgroundColor: "rgb(255, 99, 132)",
+            borderColor: "rgb(255, 99, 132)",
+            data: [5, 10, 5, 2, 20, 30, 45, 50, 60, 70],
+            hoverBackgroundColor: 'green',
+
+
         },
     ],
 };
-
-export const Data = [
-    {
-        id: 1,
-        year: 2016,
-        userGain: 80000,
-        userLost: 823
-    },
-    {
-        id: 2,
-        year: 2017,
-        userGain: 45677,
-        userLost: 345
-    },
-    {
-        id: 3,
-        year: 2018,
-        userGain: 78888,
-        userLost: 555
-    },
-    {
-        id: 4,
-        year: 2019,
-        userGain: 90000,
-        userLost: 4555
-    },
-    {
-        id: 5,
-        year: 2020,
-        userGain: 4300,
-        userLost: 234
-    }
-];
 
 const CurrencyDetails = () => {
     const { state } = useLocation()
@@ -95,10 +91,9 @@ const CurrencyDetails = () => {
                 <CurrencyConvertingCard />
                 <div className='mt-3 border'>
                     <Container>
-                        <Row>
-                            chart
+                        <Row className='justify-content-center'>
                             <div className='w-50 h-75 text-center justify-self-center' >
-
+                                <ChartCore chartType={'bar'} data={data_chart} chartOption={chartOption} />
                             </div>
                         </Row>
                     </Container>
@@ -108,27 +103,4 @@ const CurrencyDetails = () => {
     )
 }
 
-export default CurrencyDetails
-/*
-export const BarChart = ({ chartData }: any) => {
-    return (
-        <div className="chart-container">
-            <h2 style={{ textAlign: "center" }}>Bar Chart</h2>
-            <Bar
-                data={chartData}
-                options={{
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: "Users Gained between 2016-2020"
-                        },
-                        legend: {
-                            display: false
-                        }
-                    }
-                }}
-            />
-        </div>
-    );
-};
-*/
+export default CurrencyDetails;

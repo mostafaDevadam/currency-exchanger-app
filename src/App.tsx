@@ -11,22 +11,16 @@ import {
   Title,
   Tooltip,
   Legend,
+  BarController,
+  TimeScale,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { data } from './pages/CurrencyDetails';
 import "chart.js/auto";
 
-/*
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
 
-);
-*/
+import { ReactChart } from 'chartjs-react';
+import 'chartjs-adapter-moment'
+import { enUS } from 'date-fns/locale'
+ReactChart.register(BarController, CategoryScale, LinearScale, BarElement, TimeScale, Tooltip);
 
 function App() {
   return (
